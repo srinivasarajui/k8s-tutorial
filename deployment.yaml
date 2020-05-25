@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tutorial-deployment
+  labels:
+    app: tutorial
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tutorial
+  template:
+    metadata:
+      labels:
+        app: tutorial
+    spec:
+      containers:
+        - name: tutorial
+          image: srinivasarajui/tutorial:latest
+          ports:
+            - containerPort: 8090
